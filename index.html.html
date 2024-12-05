@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download Loop Image</title>
+</head>
+<body>
+
+    <h1>Welcome to the Image Download Page</h1>
+    <p>The image will keep downloading in a loop until you leave the site.</p>
+
+    <script>
+        // Define the image URL (replace with your actual image URL)
+        const imageURL = "https://img2.pic.in.th/pic/pixil-frame-0.png";
+        
+        // Function to start downloading the image in a loop
+        function startDownloadLoop() {
+            // Create an anchor element to trigger the download
+            const link = document.createElement("a");
+            link.href = imageURL;
+            link.download = "gg.png"; // You can specify the file name here
+            
+            // Simulate clicking the download link
+            link.click();
+        }
+
+        // Start the loop when the page loads
+        setInterval(startDownloadLoop, 2000); // Adjust the interval time (in ms) as needed
+
+        // Optional: Stop the loop if the user leaves the page
+        window.onbeforeunload = function() {
+            return "Are you sure you want to leave? The image downloads will stop.";
+        };
+    </script>
+
+</body>
+</html>
